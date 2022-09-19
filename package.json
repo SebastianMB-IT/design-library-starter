@@ -1,0 +1,109 @@
+{
+  "version": "0.5.3",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build && yarn build-tailwind",
+    "test": "tsdx test",
+    "lint": "eslint ./src/**/*.{js,jsx,ts,tsx,json}",
+    "lint:fix": "eslint --fix './src/**/*.{js,jsx,ts,tsx,json}'",
+    "format": "prettier --write './src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "prepare": "tsdx build && yarn build-tailwind",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "build-tailwind": "NODE_ENV=production npx tailwindcss -o ./dist/design-library.css --minify",
+    "publish": "np"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "cti-design",
+  "author": "Sebastian",
+  "module": "dist/cti-design.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/cti-design.cjs.production.min.js",
+      "limit": "100 KB"
+    },
+    {
+      "path": "dist/cti-design.esm.js",
+      "limit": "100 KB"
+    }
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.18.9",
+    "@size-limit/preset-small-lib": "^7.0.8",
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/addon-info": "^5.3.21",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/addons": "^6.5.12",
+    "@storybook/react": "^6.5.12",
+    "@tailwindcss/forms": "^0.5.2",
+    "@testing-library/react": "^13.4.0",
+    "@types/jest": "^29.0.0",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.36.1",
+    "autoprefixer": "^10.4.7",
+    "babel-loader": "^8.2.5",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard-with-typescript": "^22.0.0",
+    "eslint-import-resolver-typescript": "^3.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.31.6",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-storybook": "^0.6.4",
+    "husky": "^8.0.1",
+    "np": "^7.6.2",
+    "postcss": "^8",
+    "prettier": "^2.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-is": "^18.2.0",
+    "size-limit": "^7.0.8",
+    "tailwindcss": "^3.1.6",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.4.0",
+    "typescript": "*"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.6.6",
+    "classnames": "^2.3.1",
+    "react-icons": "^4.4.0"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "tailwind",
+    "tailwindcss",
+    "design-system"
+  ]
+}
